@@ -21,11 +21,13 @@ const Kategoriat = ({kategoriat}) => (
         </li>
       )} 
   </aside>
+  <Hakemisto kappaleet={kappaleet} kategoriat={kategoriat}/>
   </div>
   )
 
 const Kappaleet = ({ kappaleet }) => (
   <article>
+    <KappaleLinkit kappaleet={kappaleet}/>
     {kappaleet.map((kappale) => (
       <div key={kappale.id}>
         <h2>{kappale.nimi}</h2>
@@ -34,6 +36,37 @@ const Kappaleet = ({ kappaleet }) => (
     ))}
   </article>
 )
+
+const KappaleLinkit = ({ kappaleet }) => (
+  <article>
+    {kappaleet.map((kappale) => (
+      <h3 key={kappale.id}>
+        <Link to={`/${kappale.nimi}`}>{kappale.id}. {kappale.nimi}</Link>
+      </h3>
+    ))}
+  </article>
+)
+
+const Hakemisto = () => (
+  <aside>
+    <Link to={'/Hakemisto'}>Hakemisto</Link>
+  </aside>
+)
+
+
+const HakemistoArticle = ({ kappaleet, kategoriat }) => (
+  <article>
+    {kategoriat.map((kategoria) => {
+      const filteredKappaleet = kappaleet.filter((kappale) => kappale.kategoria === kategoria)
+      return (
+        <div key={kategoria}>
+          <h2>{kategoria}</h2>
+          <Kappaleet kappaleet={filteredKappaleet} />
+        </div>
+      )})}
+  </article>
+)
+
 
 const App = () => {
   const kategoriat = kappaleet.reduce((acc, cur) => {
@@ -54,10 +87,12 @@ const App = () => {
     <div className="container">
       <Kategoriat kategoriat={kategoriat}/>
       <Routes>
-        <Route path=""  />}/>
+        <Route path=""/>
         {kategoriat.map((kategoria) => (
-        <Route key={kategoria} path={`/${kategoria}`} element={
-          <Kappaleet kappaleet={kategoriaKappaleet} />}/>))}
+          <Route key={kategoria} path={`/${kategoria}`} element={
+            <Kappaleet kappaleet={kategoriaKappaleet} />}/>
+        ))}
+      <Route path="/Hakemisto" element={<HakemistoArticle kappaleet={kappaleet} kategoriat={kategoriat}/>}  />
       </Routes>
     </div>
     </>
