@@ -2,7 +2,8 @@
 const kappaleet = [
     {
       "id": "1",
-      "nimi": "Olutkaanon \n(Jaakko Kulta)",
+      "nimi": "Olutkaanon",
+      "alkuperäinen": "Jaakko Kulta",
       "sanat": "Lapin kulta, Lapin kulta\nKarjala, Karjala\nSininen ja Olvi, Sininen ja Olvi\nKoff, Koff, Koff",
       "kategoria": "Juomalaulut"
     },
@@ -20,7 +21,8 @@ const kappaleet = [
     },
     {
       "id": "4",
-      "nimi": "Karhuviinaa & Savon Wiinaa\n(Mörri-Möykky)",
+      "nimi": "Karhuviinaa & Savon Wiinaa",
+      "alkuperäinen": "Mörri-Möykky",
       "sanat": "Ottaisin minä karhuviinaa jos vain pullon saisin\n:,: Pieneen kurkkuun kaataisin\nja sitten oksentaisin :,:\n\nTiu tau tiu tau tilitali tittan\nJuodaan rommia kolalla\n:,: Sitten kun ollaan koko pullo juotu\nollaan perseet olalla! :,:\n\nOttaisin minä Savon Wiinaa\njos vain jostain saisin\n:,: Koko pullon ryyppäisin\nja sitten oksentaisin :,:\n\nTiu tau tiu tau tilitali...\n\nEipä taida meidän äiti\nSavon Wiinaa ostaa\n:,: Eihän se edes usko että\nSavon Wiina on totta :,:\n\nTiu tau tiu tau tilitali...\n\nSyksyn tullen sieniä kasvaa\nvarpaanväleissämme\n:,: Eikä me sukkia vaihdeta\nei edes keskenämme :,:\n\nTiu tau tiu tau tilitali...",
       "kategoria": "Juomalaulut"
     },

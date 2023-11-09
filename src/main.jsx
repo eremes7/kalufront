@@ -41,7 +41,7 @@ const KappaleLinkit = ({ kappaleet }) => (
   <article>
     {kappaleet.map((kappale) => (
       <h3 key={kappale.id}>
-        <Link to={`/${kappale.nimi}`}>{kappale.id}. {kappale.nimi}</Link>
+        <Link to={`/${kappale.kategoria}/${kappale.nimi}`}>{kappale.id}... {kappale.nimi}</Link>
       </h3>
     ))}
   </article>
@@ -53,7 +53,14 @@ const Hakemisto = () => (
   </aside>
 )
 
-
+const KappaleArticle = ({ kappale }) => {
+  console.log('pöröööt')
+return(
+  <article>
+    <h2>{kappale.nimi}</h2>
+    <pre>{kappale.sanat}</pre>
+  </article>
+  )}
 const HakemistoArticle = ({ kappaleet, kategoriat }) => (
   <article>
     {kategoriat.map((kategoria) => {
@@ -61,14 +68,15 @@ const HakemistoArticle = ({ kappaleet, kategoriat }) => (
       return (
         <div key={kategoria}>
           <h2>{kategoria}</h2>
-          <Kappaleet kappaleet={filteredKappaleet} />
-        </div>
-      )})}
-  </article>
-)
+          {filteredKappaleet.map((kappale) =>
+          <h3><Link to={`/${kappale.kategoria}/${kappale.nimi}`}>{kappale.id}... {kappale.nimi}</Link></h3>)}
+          </div>
+        )})}
+    </article>
+  )
 
 
-const App = () => {
+  const App = () => {
   const kategoriat = kappaleet.reduce((acc, cur) => {
     if (!acc.includes(cur.kategoria)){
       acc.push(cur.kategoria)
@@ -93,6 +101,7 @@ const App = () => {
             <Kappaleet kappaleet={kategoriaKappaleet} />}/>
         ))}
       <Route path="/Hakemisto" element={<HakemistoArticle kappaleet={kappaleet} kategoriat={kategoriat}/>}  />
+        {kappaleet.map((kappale) =>  <Route key={kappale.id} path={`/${kappale.kategoria}/${kappale.nimi}`} element={<KappaleArticle kappale={kappale}/>}/>)}
       </Routes>
     </div>
     </>
@@ -100,4 +109,4 @@ const App = () => {
 
 const root = ReactDom.createRoot(document.getElementById('root'))
 root.render(
-  <Router><App /></Router>)
+ <Router><App /></Router>)
