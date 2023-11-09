@@ -2,21 +2,20 @@
 
 >react js
 
-+dummydata
-+routes
-+css
-+article
-+hakemisto
-+linkit
-
--lint
--reactTests
--refactor
--server
--login
--remove
--add
--admin
--db
--.....
+-[x] dummydata
+-[x] routes
+-[x] css
+-[x] article
+-[x] hakemisto
+-[x] linkit
+-[] lint
+-[] reactTests
+-[] refactor
+-[] server
+-[] login
+-[] remove
+-[] add
+-[] admin
+-[] db
+-[] .....
 
