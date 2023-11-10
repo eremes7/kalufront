@@ -91,7 +91,7 @@ const HakemistoArticle = ({ kappaleet, kategoriat }) => (
 
   return (
     <>
-    <h1> Kalu </h1>
+    <yläteksti id="header1"><img id="kuva1" src="./img/oty_6.png"/> LAULUKALU </yläteksti>
     <div className="container">
       <Kategoriat kategoriat={kategoriat}/>
       <Routes>
